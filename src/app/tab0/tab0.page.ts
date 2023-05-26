@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class Tab0Page {
 
+  public photos = [
+    'https://placebear.com/200/300',
+    'https://placebear.com/640/360'
+  ];
   constructor() {}
 
 }

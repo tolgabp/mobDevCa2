@@ -1,23 +1,32 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Favourites
-    </ion-title>
+  <ion-toolbar color="secondary">
+    <div class="title-container">
+      <ion-title class="title-center">
+        Favourites
+      </ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar color="secondary">
       <ion-title size="large">Favourites</ion-title>
     </ion-toolbar>
   </ion-header>
-
 
 <ion-grid>
   <ion-row>
     <ion-col size="4" *ngFor="let photo of photoService.photos; index as position">
       <ion-img [src]="photo.webviewPath" *ngIf="photo.isFavourite"></ion-img>
+      <ion-item *ngIf="photo.isFavourite">
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input [(ngModel)]="photo.description"></ion-input> <!-- Add an input field for description -->
+      </ion-item>
+      <ion-item *ngIf="photo.isFavourite">
+        <ion-label position="stacked">Location</ion-label>
+        <ion-input [(ngModel)]="photo.location"></ion-input> <!-- Add an input field for location -->
+      </ion-item>
     </ion-col>
   </ion-row>
 </ion-grid>

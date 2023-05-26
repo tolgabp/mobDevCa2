@@ -21,6 +21,6 @@ describe('Tab3Page', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy(); // Verifying if the Tab3Page component is created
   });
 });

@@ -21,6 +21,6 @@ describe('TabsPage', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy(); // Verifying if the TabsPage component is created
   });
 });

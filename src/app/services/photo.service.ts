@@ -10,16 +10,16 @@ import { Platform } from '@ionic/angular';
 })
 
 export class PhotoService {
-  public photos: UserPhoto[] = [];
-  private photo_storage = 'photos';
+  public photos: UserPhoto[] = []; // Array to store user photos
+  private photo_storage = 'photos'; // Storage identifier for photos
   private platform: Platform;
 
   constructor(platform: Platform) {
-    this.platform = platform;
+    this.platform = platform; // Initializing the platform
   }
 
 
-
+// Converts a photo to base64 format
   private async convertBase64(photo: Photo) {
     if (photo.webPath) {
       const res = await fetch(photo.webPath);
@@ -30,6 +30,7 @@ export class PhotoService {
     return null;
   }
 
+  // Converts a blob to base64 format
   private convertBlobTo64(blob: Blob) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -41,6 +42,7 @@ export class PhotoService {
     })
   }
 
+ // Saves the photo to the device
   private async saveToDevice(photo: Photo) {
 
     const base64data = await this.convertBase64(photo);
@@ -65,6 +67,7 @@ export class PhotoService {
     }
   }
 
+  // Takes a photo using the device's camera
   async takePhoto() {
     const photo = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
@@ -84,10 +87,11 @@ export class PhotoService {
 
 }
 
+// Interface representing a user photo
 export interface UserPhoto {
   isFavourite: boolean;
   filepath: string;
   webviewPath?: string;
-  description?: string; // Add a description property
-  location?: string; // Add a location property
+  description?: string; 
+  location?: string; 
 }

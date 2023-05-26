@@ -16,6 +16,6 @@ export class Tab1Page {
   }
 
   loadFavourites() {
-    this.Favourites = this.photoService.photos.filter(photo => photo.isFavourite);
+    this.Favourites = this.photoService.photos.filter(photo => photo.isFavourite && photo.description && photo.location); // Filtering and loading favorite photos with description and location
   }
 }

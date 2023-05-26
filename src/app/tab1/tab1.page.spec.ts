@@ -21,6 +21,6 @@ describe('Tab1Page', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy(); // Verifying if the Tab1Page component is created
   });
 });

@@ -5,7 +5,7 @@ import { Tab0Page } from './tab0.page';
 const routes: Routes = [
   {
     path: '',
-    component: Tab0Page,
+    component: Tab0Page, // Route path for Tab0Page component
   }
 ];
 

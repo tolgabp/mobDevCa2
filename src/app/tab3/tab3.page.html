@@ -1,9 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar color="secondary">
+    <div class="title-container">
+      <ion-title class="title-center">
       Gallery
     </ion-title>
-  </ion-toolbar>
+  </div>
+</ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -11,8 +13,14 @@
     <ion-row>
       <ion-col size="4" *ngFor="let photo of photoService.photos; index as position">
         <ion-img [src]="photo.webviewPath"></ion-img>
-        <ion-input placeholder="Enter description" [(ngModel)]="photo.description"></ion-input> <!-- Add an input field for description -->
-        <ion-input placeholder="Enter location" [(ngModel)]="photo.location"></ion-input> <!-- Add an input field for location -->
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-input [(ngModel)]="photo.description"></ion-input> <!-- Add an input field for description -->
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Location</ion-label>
+          <ion-input [(ngModel)]="photo.location"></ion-input> <!-- Add an input field for location -->
+        </ion-item>
         <ion-button (click)="markAsFavourite(photo)"> <!-- favorite button-->
           <ion-icon name="{{ photo.isFavourite ? 'heart' : 'heart-outline' }}"></ion-icon> <!--heart icon-->
         </ion-button>
