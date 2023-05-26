@@ -18,5 +18,4 @@ export class Tab1Page {
   loadFavourites() {
     this.Favourites = this.photoService.photos.filter(photo => photo.isFavourite);
   }
-
 }

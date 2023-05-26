@@ -10,7 +10,6 @@ export class Tab2Page {
 
   constructor(public photoService: PhotoService) {}
 
-  
   takePhoto() {
     this.photoService.takePhoto();
   }

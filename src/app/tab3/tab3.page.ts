@@ -14,5 +14,4 @@ export class Tab3Page {
     // Add the selected photo to the Favourites list or update its property
     photo.isFavourite = !photo.isFavourite;
   }
-
 }
