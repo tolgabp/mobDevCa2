@@ -41,29 +41,28 @@ export class PhotoService {
     })
   }
 
-  // private async saveToDevice(photo: Photo) {
-  //   // 1000001 = a
-  //   // rgb alpha (transparency)
-  //   // cmyk
+  private async saveToDevice(photo: Photo) {
 
-  //   const base64data = await this.convertBase64(photo);
-  //   if (base64data) {
+    const base64data = await this.convertBase64(photo);
+    if (base64data) {
+      const filename = `Picture taken at ${new Date().getTime()}.jpeg`;
+      const savedFile = await Filesystem.writeFile({
+        path: filename,
+        data: base64data,
+        directory: Directory.Data
+      })
+      console.log(filename);
+      console.log(savedFile);
 
-  //     const filename = `Picture taken at ${new Date().getTime()}.jpeg`;
-  //     const savedFile = await Filesystem.writeFile({
-  //       path: filename,
-  //       data: base64data,
-  //       directory: Directory.Data
-  //     })
-  //     console.log(filename);
-  //     console.log(savedFile);
-
-  //     return {
-  //       filepath: filename,
-  //       webviewPath: photo.webPath
-  //     }
-  //   }
-  // }
+      return {
+        filepath: filename,
+        webviewPath: photo.webPath
+      }
+    }
+    else {
+      return null;
+    }
+  }
 
   async takePhoto() {
     const photo = await Camera.getPhoto({
@@ -76,7 +75,7 @@ export class PhotoService {
       webviewPath: photo.webPath
     })
     console.log(this.photos.length);
-    // this.saveToDevice(photo);
+    this.saveToDevice(photo);
   }
 
 
