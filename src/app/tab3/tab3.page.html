@@ -11,6 +11,9 @@
     <ion-row>
       <ion-col size="4" *ngFor="let photo of photoService.photos; index as position">
         <ion-img [src]="photo.webviewPath"></ion-img>
+        <ion-button (click)="markAsFavourite(photo)"> <!-- favorite button-->
+          <ion-icon name="{{ photo.isFavourite ? 'heart' : 'heart-outline' }}"></ion-icon> <!--heart icon-->
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
