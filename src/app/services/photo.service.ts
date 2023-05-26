@@ -88,4 +88,6 @@ export interface UserPhoto {
   isFavourite: boolean;
   filepath: string;
   webviewPath?: string;
+  description?: string; // Add a description property
+  location?: string; // Add a location property
 }
